@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Book Nook Reminder</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f8f9fa; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background-color: #ffffff; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .header { 
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); 
+            color: white; 
+            padding: 40px 30px; 
+            text-align: center; 
+        }
+        .header h1 { 
+            margin: 0; 
+            font-size: 28px; 
+            font-weight: 300; 
+        }
+        .content { 
+            padding: 40px 30px; 
+            color: #34495e; 
+            line-height: 1.6; 
+        }
+        .reminder-message { 
+            font-size: 18px; 
+            margin-bottom: 30px; 
+        }
+        .new-features { 
+            background-color: #fff3cd; 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin: 25px 0; 
+            border-left: 4px solid #ffc107; 
+        }
+        .new-features h3 { 
+            color: #856404; 
+            margin-top: 0; 
+        }
+        .new-features ul { 
+            margin: 15px 0; 
+            padding-left: 20px; 
+        }
+        .new-features li { 
+            margin-bottom: 8px; 
+        }
+        .call-to-action { 
+            background-color: #e8f4fd; 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin: 25px 0; 
+            border-left: 4px solid #3498db; 
+        }
+        .call-to-action h3 { 
+            color: #2980b9; 
+            margin-top: 0; 
+        }
+        .call-to-action ul { 
+            margin: 15px 0; 
+            padding-left: 20px; 
+        }
+        .call-to-action li { 
+            margin-bottom: 8px; 
+        }
+        .cta-button { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); 
+            color: white; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-weight: bold; 
+            margin: 20px 0; 
+            text-align: center; 
+        }
+        .footer { 
+            background-color: #f8f9fa; 
+            padding: 30px; 
+            text-align: center; 
+            color: #7f8c8d; 
+            font-size: 14px; 
+        }
+        .stats { 
+            background-color: #f1f2f6; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 20px 0; 
+            text-align: center; 
+        }
+        .stats h4 { 
+            color: #2c3e50; 
+            margin: 0 0 15px 0; 
+        }
+        .stats p { 
+            margin: 5px 0; 
+            color: #7f8c8d; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Monthly Book Nook Reminder</h1>
+        </div>
+        
+        <div class="content">
+            <div class="reminder-message">
+                <p>Hello <strong>{{capitalize username}}</strong>! 👋</p>
+                <p>It's been a while since we've seen you at The Book Nook! We miss your presence in our community of book lovers.</p>
+            </div>
+            
+            <div class="new-features">
+                <h3>🌟 What's New This Month:</h3>
+                <ul>
+                    <li>Fresh book arrivals from bestselling authors</li>
+                    <li>Exclusive member discounts and promotions</li>
+                    <li>New reading challenges and book clubs</li>
+                    <li>Community discussions and book reviews</li>
+                    <li>Seasonal reading recommendations</li>
+                </ul>
+            </div>
+            
+            <div class="call-to-action">
+                <h3>�� Ready to Dive Back In?</h3>
+                <p>Your reading journey is waiting! Here's what you can do right now:</p>
+                <ul>
+                    <li>Discover new genres and authors</li>
+                    <li>Check out our curated reading lists</li>
+                    <li>Join book discussions with fellow readers</li>
+                    <li>Explore our special collections</li>
+                    <li>Participate in reading challenges</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{siteUrl}}" class="cta-button">📖 Visit The Book Nook Now</a>
+            </div>
+            
+            <div class="stats">
+                <h4>�� Community Stats</h4>
+                <p>This month: <strong>{{monthlyStats.newBooks}} new books</strong> added</p>
+                <p>Active readers: <strong>{{monthlyStats.activeUsers}} members</strong> exploring</p>
+                <p>New discussions: <strong>{{monthlyStats.newDiscussions}} conversations</strong> started</p>
+            </div>
+            
+            <p>Remember, every great story starts with turning the first page. We can't wait to see what you'll discover next!</p>
+        </div>
+        
+        <div class="footer">
+            <p>Happy reading! 📖<br>The Book Nook Team</p>
+            <p><small>You're receiving this because you're a valued member of The Book Nook community.</small></p>
+        </div>
+    </div>
+</body>
+</html>
