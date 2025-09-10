@@ -24,8 +24,11 @@ monthlyReminderService.start();
 
 
 app.use(cors({
-    origin: 'http://localhost:3001', 
-    credentials: true               
+    origin: [
+        "http://localhost:3001",  // local dev
+        "https://next-book-frontend.onrender.com" // deployed frontend
+    ],
+    credentials: true
 }));
 
 
@@ -41,7 +44,7 @@ app.use('/test', test);
 app.use("/api/stripe", stripeRoutes);
 
 
-app.listen(port, (req, res)=>{
+app.listen(port, (req, res) => {
     console.log("Server running on port", port);
 });
 
