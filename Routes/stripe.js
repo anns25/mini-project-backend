@@ -5,6 +5,9 @@ import Stripe from "stripe";
 const stripeRoutes = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3000";
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3001";
+
 // POST /api/stripe/create-checkout-session
 stripeRoutes.post("/create-checkout-session", async (req, res) => {
   try {
@@ -15,7 +18,7 @@ stripeRoutes.post("/create-checkout-session", async (req, res) => {
         currency: "usd",
         product_data: {
           name: item.title,
-          images: [`http://localhost:3000/uploads/${item.image}`], // optional
+          images: [`${BACKEND_URL}/uploads/${item.image}`],
         },
         unit_amount: Math.round(item.price * 100), // Stripe uses cents
       },
@@ -26,8 +29,8 @@ stripeRoutes.post("/create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      success_url: "http://localhost:3001/success", // frontend success page
-      cancel_url: "http://localhost:3001/cancel",   // frontend cancel page
+      success_url: `${FRONTEND_URL}/success`,
+      cancel_url: `${FRONTEND_URL}/cancel`,
     });
 
     res.json({ url: session.url });

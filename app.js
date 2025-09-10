@@ -22,12 +22,14 @@ const port = process.env.PORT;
 
 monthlyReminderService.start();
 
+const FRONTEND_URLS = [
+    process.env.FRONTEND_URL,          // e.g. https://next-book-frontend.onrender.com
+    process.env.FRONTEND_URL_ALT,      // optional secondary
+    "http://localhost:3001"            // local dev fallback
+].filter(Boolean);
 
 app.use(cors({
-    origin: [
-        "http://localhost:3001",  // local dev
-        "https://next-book-frontend.onrender.com" // deployed frontend
-    ],
+    origin: FRONTEND_URLS,
     credentials: true
 }));
 
