@@ -1,6 +1,8 @@
 import transporter from '../config/emailConfig.js';
 import { loadTemplate } from '../config/emailTemplates.js';
 
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3001';
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000';
 
 
 export const sendWelcomeEmail = async (userEmail, username) => {
@@ -8,7 +10,7 @@ export const sendWelcomeEmail = async (userEmail, username) => {
         const template = loadTemplate('welcome');
         const html = template({
             username: username,
-            siteUrl: process.env.SITE_URL || 'http://localhost:3001'
+            siteUrl: FRONTEND_URL
         });
 
         const mailOptions = {
@@ -35,7 +37,7 @@ export const sendMonthlyReminderEmail = async (userEmail, username) => {
 
         const html = template({
             username: username,
-            siteUrl: process.env.SITE_URL || 'http://localhost:3001',
+            siteUrl: FRONTEND_URL,
         });
 
         const mailOptions = {
@@ -67,7 +69,7 @@ export const sendOrderConfirmationEmail = async (userEmail, username, orderData)
             shippingAddress: orderData.shippingAddress,
             books: orderData.books,
             totalAmount: orderData.totalAmount,
-            siteUrl: process.env.SITE_URL || 'http://localhost:3000'
+            siteUrl: BACKEND_URL
         });
 
         const mailOptions = {
